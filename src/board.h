@@ -4,5 +4,5 @@
 void start(int flag);
 int white();
 int black();
-
+void move();
 #endif
