@@ -46,3 +46,9 @@ int black()
   return 1;
  return 0;
 }
+
+void move()
+{
+ desk[i2][c2] = desk[i1][i1];
+ desk[i1][c1] = ' ';
+}
