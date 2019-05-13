@@ -8,12 +8,14 @@ int i1, c1, i2, c2;
 void start(int flag)
 {
     char input[7] = "NULL";
-    //    for (;;) {
     for (;;) {
         fgets(input, 7, stdin);
+        c1=(int)input[0]-'A';
+        i1=(int)input[1]-'1';
+        c2=(int)input[3]-'A';
+        i2=(int)input[4]-'1';
         if (flag == 1) {
             if (white() == 1) {
-                // printf("safaf");
                 break;
             } else {
                 printf("Невозможный ход. Введите ещё раз: ");
