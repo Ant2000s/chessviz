@@ -1,30 +1,30 @@
+#include "board.h"
+#include "board_print_plain.h"
 #include <stdio.h>
 
-void board(char board[8][8])
-{
-    printf("\n");
-    for (int i = 7; i >= 0; i--) {
-        printf("—+——+——+——+——+——+——+——+——+\n");
-        printf("%d|", i + 1);
-        for (int j = 0; j < 8; j++) {
-            printf("%c |", board[i][j]);
-        }
-        printf("\n");
-    }
-    printf("  _______________________\n");
-    printf("  A  B  C  D  E  F  G  H \n");
-}
+// extern char desk[8][8];
+
+char desk[8][8] = {"RHBQKBHR",
+                   "PPPPPPPP",
+                   "        ",
+                   "        ",
+                   "        ",
+                   "        ",
+                   "pppppppp",
+                   "rhbqkbhr"};
 
 int main()
 {
-    char dos[8][8] = {"rhbqkbhr",
-                      "pppppppp",
-                      "        ",
-                      "        ",
-                      "        ",
-                      "        ",
-                      "PPPPPPPP",
-                      "RHBQKBHR"};
-    board(dos);
+    board();
+    for (;;) {
+        printf("Введите действие белых: ");
+        start(1);
+        move();
+        board();
+        printf("Введите действие чёрных: ");
+        start(2);
+        move();
+        board();
+    }
     return 0;
 }
