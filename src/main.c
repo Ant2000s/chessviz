@@ -21,7 +21,7 @@ int main()
      move();
      board();
      start(2);
-     move(2);
+     move();
      board();
      }
     return 0;
