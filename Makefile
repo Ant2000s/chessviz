@@ -6,7 +6,7 @@ bin/main: build/main.o build/board_print_plain.o build/board.o
 build/main.o: src/main.c
 	gcc -Wall -Werror -c src/main.c -o build/main.o
 
-build/main.o: src/board.c
+build/board.o: src/board.c
 	gcc -Wall -Werror -c src/board.c -o build/board.o
 
 build/board_print_plain.o: src/board_print_plain.c
