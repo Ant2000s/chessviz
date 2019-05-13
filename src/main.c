@@ -4,14 +4,15 @@
 
 // extern char desk[8][8];
 
-char desk[8][8] = {"rhbqkbhr",
-                   "pppppppp",
-                   "        ",
-                   "        ",
-                   "        ",
-                   "        ",
+char desk[8][8] = {
+                   "RHBQKBHR",
                    "PPPPPPPP",
-                   "RHBQKBHR"};
+                   "        ",
+                   "        ",
+                   "        ",
+                   "        ",
+                   "pppppppp",
+                   "rhbqkbhr"};
 
 int main()
 {
