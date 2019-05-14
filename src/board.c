@@ -10,10 +10,10 @@ void start(int flag)
     char input[7] = "NULL";
     for (;;) {
         fgets(input, 7, stdin);
-        c1=(int)input[0]-'A';
-        i1=(int)input[1]-'1';
-        c2=(int)input[3]-'A';
-        i2=(int)input[4]-'1';
+        c1 = (int)input[0] - 'A';
+        i1 = (int)input[1] - '1';
+        c2 = (int)input[3] - 'A';
+        i2 = (int)input[4] - '1';
         if (flag == 1) {
             if (white() == 1) {
                 break;
