@@ -34,7 +34,7 @@ int white()
 {
     switch (desk[i1][c1]) {
     case 'P':
-        if ((desk[i2][c2] == ' ') && (i1 == 2) && (c2 == c1) && ((i2 - i1) > 0)
+        if ((desk[i2][c2] == ' ') && (i1 == 1) && (c2 == c1) && ((i2 - i1) > 0)
             && ((i2 - i1) <= 2)) {
             return 1;
         }
