@@ -82,7 +82,33 @@ int white()
             return 1;
         }
         break;
-        return 0;
+    case 'N':
+        if ((i1 - i2 == 2) && (c1 - c2 == 1)) {
+            return 1;
+        }
+        if ((i2 - i1 == 2) && (c2 - c1 == 1)) {
+            return 1;
+        }
+        if ((i2 - i1 == 2) && (c1 - c2 == 1)) {
+            return 1;
+        }
+        if ((i1 - i2 == 2) && (c2 - c1 == 1)) {
+            return 1;
+        }
+        if ((i1 - i2 == 1) && (c2 - c1 == 2)) {
+            return 1;
+        }
+        if ((i2 - i1 == 1) && (c2 - c1 == 2)) {
+            return 1;
+        }
+        if ((i1 - i2 == 1) && (c1 - c2 == 2)) {
+            return 1;
+        }
+        if ((i2 - i1 == 1) && (c1 - c2 == 2)) {
+            return 1;
+        }
+        break;
+    return 0;
 }
 int black()
 {
@@ -109,6 +135,32 @@ int black()
             return 1;
         }
         if ((c2 == c1) && (checkY())) {
+            return 1;
+        }
+        break;
+    case 'n':
+        if ((i1 - i2 == 2) && (c1 - c2 == 1)) {
+            return 1;
+        }
+        if ((i2 - i1 == 2) && (c2 - c1 == 1)) {
+            return 1;
+        }
+        if ((i2 - i1 == 2) && (c1 - c2 == 1)) {
+            return 1;
+        }
+        if ((i1 - i2 == 2) && (c2 - c1 == 1)) {
+            return 1;
+        }
+        if ((i1 - i2 == 1) && (c2 - c1 == 2)) {
+            return 1;
+        }
+        if ((i2 - i1 == 1) && (c2 - c1 == 2)) {
+            return 1;
+        }
+        if ((i1 - i2 == 1) && (c1 - c2 == 2)) {
+            return 1;
+        }
+        if ((i2 - i1 == 1) && (c1 - c2 == 2)) {
             return 1;
         }
         break;
