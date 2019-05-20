@@ -10,46 +10,42 @@ void start(int flag)
 {
     // char input[7] = "NULL";
     for (;;) {
+        fgets(input, 7, stdin);
         if ((input[2] != '-') && (input[2] != 'x')) {
             break;
         }
-        fgets(input, 7, stdin);
         c1 = (int)input[0] - 'A';
         i1 = (int)input[1] - '1';
         c2 = (int)input[3] - 'A';
         i2 = (int)input[4] - '1';
         if ((input[2] == 'x') && (desk[i2][c2] == ' ')) {
             printf("Некого рубить! Введите ещё раз: ");
-            break;
         }
         if ((input[2] == '-') && (desk[i2][c2] != ' ')) {
             printf("Нельзя сходить, клетка занята. Введите ещё раз: ");
-            break;
         }
         if ((c2 < 8) && (c2 >= 0) && (i2 < 8) && (i2 >= 0) && (c1 < 8)
             && (c1 >= 0) && (i1 < 8) && (i1 >= 0)) {
-            break;
-        }
         if (flag == 1) {
             if (white() == 1) {
                 break;
             } else {
-                printf("Введите ещё раз: ");
+                printf("Невозможное действие, введите ещё раз: ");
             }
         }
         if (flag == 2) {
             if (black() == 1) {
                 break;
             } else {
-                printf("Введите ещё раз: ");
+                printf("Невозможное действие, введите ещё раз: ");
             }
-        }
+        }}
     }
 }
 
 void move()
 {
-    desk[i2][c2] = desk[i1][i1];
+    desk[i2][c2] = desk[i1][c1];
     desk[i1][c1] = ' ';
 }
 
@@ -230,8 +226,8 @@ int checkX()
         return 0;
     }
     if (c1 > c2) {
-        c1 = c2;
-        c2 = c1;
+        y1 = c2;
+        y2 = c1;
     }
     for (i = y1 + 1; i < y2; i++) {
         if ((desk[i1][i] > 'a' && desk[i1][i] < 's')
@@ -244,13 +240,15 @@ int checkX()
 
 int checkD()
 {
-    int i, j, y1 = i2, y2 = i1, ci, cj;
+    int i, j, ci, cj;
+    int d1=i2;
+    int d2=i1;
     if (((i2 - i1) != (c2 - c1)) && ((i2 - i1) != (c1 - c2))) {
         return 0;
     }
     if (i2 > i1) {
-        c1 = y1;
-        c2 = y2;
+        d1 = i1;
+        d2 = i2;
         ci = 1;
     } else {
         ci = -1;
@@ -262,7 +260,7 @@ int checkD()
     }
     i = i1 + ci;
     j = c1 + cj;
-    while ((i < c2) && (i > c1)) {
+    while ((i < d2) && (i > d1)) {
         if (((desk[i][j] > 'a') && (desk[i][j] < 's'))
             || ((desk[i][j] > 'A') && (desk[i][j] < 'S'))) {
             return 0;
