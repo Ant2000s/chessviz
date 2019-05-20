@@ -108,6 +108,11 @@ int white()
             return 1;
         }
         break;
+    case 'B':
+        if (checkD()) {
+            return 1;
+        }
+        break;
     return 0;
 }
 int black()
@@ -161,6 +166,11 @@ int black()
             return 1;
         }
         if ((i2 - i1 == 1) && (c1 - c2 == 2)) {
+            return 1;
+        }
+        break;
+    case 'b':
+        if (checkD()) {
             return 1;
         }
         break;
