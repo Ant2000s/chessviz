@@ -1,4 +1,4 @@
-#include "chess.h"
+#include "board.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -113,7 +113,15 @@ int white()
             return 1;
         }
         break;
-    return 0;
+    case 'K':
+        if ((i1 - i2 != 1) && (i2 - i1 != 1)
+            && ((c1 - c2 != 1) && (c2 - c1 != 1))) {
+            break;
+        } else {
+            return 1;
+        }
+        break;
+       return 0;
 }
 int black()
 {
@@ -174,6 +182,13 @@ int black()
             return 1;
         }
         break;
+    case 'k':
+        if ((i1 - i2 != 1) && (i2 - i1 != 1)
+            && ((c1 - c2 != 1) && (c2 - c1 != 1))) {
+            break;
+        } else {
+            return 1;
+        }
     return 0;
 }
 
