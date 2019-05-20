@@ -112,7 +112,7 @@ int white()
         if (checkD()) {
             return 1;
         }
-        break;
+       break;
     case 'K':
         if ((i1 - i2 != 1) && (i2 - i1 != 1)
             && ((c1 - c2 != 1) && (c2 - c1 != 1))) {
@@ -121,6 +121,12 @@ int white()
             return 1;
         }
         break;
+    case 'Q':
+        if (checkX() || checkY() || checkD()) {
+            return 1;
+       }
+      break;
+        }
        return 0;
 }
 int black()
@@ -188,6 +194,12 @@ int black()
             break;
         } else {
             return 1;
+        }
+    case 'q':
+        if (checkX() || checkY() || checkD()) {
+            return 1;
+       }
+      break;
         }
     return 0;
 }
