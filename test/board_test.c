@@ -314,3 +314,69 @@ CTEST(moving, moveknight) // Тест коня
     ASSERT_EQUAL(exp7, c7);
 }
 
+CTEST(moving, movebishop) // Тест слона
+{
+    strcpy(input, "D4-D7"); // Ход вперед
+    chartoint(input);
+    desk[i1][c1] = 'B';
+    int c1 = white();
+
+    strcpy(input, "D4-D2"); // Ход назад
+    chartoint(input);
+    int c2 = white();
+
+    strcpy(input, "D4-F4"); // Ход вправо
+    chartoint(input);
+    int c3 = white();
+
+    strcpy(input, "D4-B4"); // Ход влево
+    chartoint(input);
+    int c4 = white();
+
+    strcpy(input, "D4-F6"); // Ход по диагонали вверх вправо
+    chartoint(input);
+    int c51 = white();
+
+    strcpy(input, "D4-B6"); // Ход по диагонали вверх влево
+    chartoint(input);
+    int c52 = white();
+
+    strcpy(input, "D4-F2"); // Ход по диагонали вниз вправо
+    chartoint(input);
+    int c53 = white();
+
+    strcpy(input, "D4xB2"); // Ход по диагонали вверх вправо и взятие
+    chartoint(input);
+    desk[i2][c2] = 'p';
+    int c54 = white();
+
+    desk[i2][c2] = ' ';
+
+    strcpy(input, "D4-F6"); // Ход по диагонали вниз вправо через фигуру
+    chartoint(input);
+    desk[i2 - 1][c2 - 1] = 'p';
+    int c6 = white();
+
+    desk[i1][c1] = ' ';
+    desk[i2 - 1][c2 - 1] = ' ';
+
+    const int exp1 = 0;
+    const int exp2 = 0;
+    const int exp3 = 0;
+    const int exp4 = 0;
+    const int exp51 = 1;
+    const int exp52 = 1;
+    const int exp53 = 1;
+    const int exp54 = 1;
+    const int exp6 = 0;
+
+    ASSERT_EQUAL(exp1, c1);
+    ASSERT_EQUAL(exp2, c2);
+    ASSERT_EQUAL(exp3, c3);
+    ASSERT_EQUAL(exp4, c4);
+    ASSERT_EQUAL(exp51, c51);
+    ASSERT_EQUAL(exp52, c52);
+    ASSERT_EQUAL(exp53, c53);
+    ASSERT_EQUAL(exp54, c54);
+    ASSERT_EQUAL(exp6, c6);
+}
