@@ -10,22 +10,12 @@ void start(int flag)
 {
     // char input[7] = "NULL";
     for (;;) {
+        for (;;) {
         fgets(input, 7, stdin);
-        if ((input[2] != '-') && (input[2] != 'x')) {
+        if (chartoint(input)) {
             break;
         }
-        c1 = (int)input[0] - 'A';
-        i1 = (int)input[1] - '1';
-        c2 = (int)input[3] - 'A';
-        i2 = (int)input[4] - '1';
-        if ((input[2] == 'x') && (desk[i2][c2] == ' ')) {
-            printf("Некого рубить! Введите ещё раз: ");
         }
-        if ((input[2] == '-') && (desk[i2][c2] != ' ')) {
-            printf("Нельзя сходить, клетка занята. Введите ещё раз: ");
-        }
-        if ((c2 < 8) && (c2 >= 0) && (i2 < 8) && (i2 >= 0) && (c1 < 8)
-            && (c1 >= 0) && (i1 < 8) && (i1 >= 0)) {
         if (flag == 1) {
             if (white() == 1) {
                 break;
@@ -39,10 +29,36 @@ void start(int flag)
             } else {
                 printf("Невозможное действие, введите ещё раз: ");
             }
-        }}
+        }
     }
 }
-
+int chartoint(char input[7])
+{
+    if ((input[2] != '-') && (input[2] != 'x')) {
+        return 0;
+    }
+    c1 = (int)input[0] - 'A';
+    i1 = (int)input[1] - '1';
+    c2 = (int)input[3] - 'A';
+    i2 = (int)input[4] - '1';
+    if (desk[i1][c1] == ' ') {
+        printf("В выбраной клетке ни кого нет! введите ещё раз: ");
+        return 0;
+    }
+    if ((input[2] == 'x') && (desk[i2][c2] == ' ')) {
+        printf("Некого рубить! Введите ещё раз: ");
+        return 0;
+    }
+    if ((input[2] == '-') && (desk[i2][c2] != ' ')) {
+        printf("Нельзя сходить, клетка занята. Введите ещё раз: ");
+        return 0;
+    }
+    if ((c2 < 8) && (c2 >= 0) && (i2 < 8) && (i2 >= 0) && (c1 < 8)
+            && (c1 >= 0) && (i1 < 8) && (i1 >= 0)) {
+        return 1;
+    }
+    return 0;
+}
 void move()
 {
     desk[i2][c2] = desk[i1][c1];
@@ -241,8 +257,8 @@ int checkX()
 int checkD()
 {
     int i, j, ci, cj;
-    int d1=i2;
-    int d2=i1;
+    int d1 = i2;
+    int d2 = i1;
     if (((i2 - i1) != (c2 - c1)) && ((i2 - i1) != (c1 - c2))) {
         return 0;
     }
