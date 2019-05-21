@@ -380,3 +380,172 @@ CTEST(moving, movebishop) // Тест слона
     ASSERT_EQUAL(exp54, c54);
     ASSERT_EQUAL(exp6, c6);
 }
+
+CTEST(moving, moveking) // Тест короля
+{
+    strcpy(input, "D4-D5"); // Ход вверх
+    chartoint(input);
+    desk[i1][c1] = 'K';
+    int c1 = white();
+
+    strcpy(input, "D4-D3"); // Ход вниз
+    chartoint(input);
+    int c2 = white();
+
+    strcpy(input, "D4-C4"); // Ход влево
+    chartoint(input);
+    int c3 = white();
+
+    strcpy(input, "D4-E4"); // Ход вправо
+    chartoint(input);
+    int c4 = white();
+
+    strcpy(input, "D4-E5"); // Ход вверх вправо
+    chartoint(input);
+    int c5 = white();
+
+    strcpy(input, "D4-C5"); // Ход вверх влево
+    chartoint(input);
+    int c6 = white();
+
+    strcpy(input, "D4-E3"); // Ход вниз вправо
+    chartoint(input);
+    int c7 = white();
+
+    strcpy(input, "D4xC3"); // Ход вниз влево и взятие
+    chartoint(input);
+    desk[i2][c2] = 'p';
+    int c8 = white();
+
+    desk[i2][c2] = ' ';
+
+    strcpy(input, "D4-D6"); // Ход вверх на 2 клетки
+    chartoint(input);
+    int c9 = white();
+
+    strcpy(input, "D4-F2"); // Ход вниз вправо на 2 клетки
+    chartoint(input);
+    int c10 = white();
+
+    desk[i1][c1] = ' ';
+
+    const int exp1 = 1;
+    const int exp2 = 1;
+    const int exp3 = 1;
+    const int exp4 = 1;
+    const int exp5 = 1;
+    const int exp6 = 1;
+    const int exp7 = 1;
+    const int exp8 = 1;
+    const int exp9 = 0;
+    const int exp10 = 0;
+
+    ASSERT_EQUAL(exp1, c1);
+    ASSERT_EQUAL(exp2, c2);
+    ASSERT_EQUAL(exp3, c3);
+    ASSERT_EQUAL(exp4, c4);
+    ASSERT_EQUAL(exp5, c5);
+    ASSERT_EQUAL(exp6, c6);
+    ASSERT_EQUAL(exp7, c7);
+    ASSERT_EQUAL(exp8, c8);
+    ASSERT_EQUAL(exp9, c9);
+    ASSERT_EQUAL(exp10, c10);
+}
+
+CTEST(moving, movequeen) // Тест ферзя
+{
+    strcpy(input, "D4-D7"); // Ход вверх
+    chartoint(input);
+    desk[i1][c1] = 'Q';
+    int c1 = white();
+
+    strcpy(input, "D4-D1"); // Ход вниз
+    chartoint(input);
+    int c2 = white();
+
+    strcpy(input, "D4-A4"); // Ход влево
+    chartoint(input);
+    int c3 = white();
+
+    strcpy(input, "D4-G4"); // Ход вправо
+    chartoint(input);
+    int c4 = white();
+
+    strcpy(input, "D4-G7"); // Ход по диагонали вверх вправо
+    chartoint(input);
+    int c5 = white();
+
+    strcpy(input, "D4-A7"); // Ход по диагонали вверх влево
+    chartoint(input);
+    int c6 = white();
+
+    strcpy(input, "D4-A1"); // Ход по диагонали вних влево
+    chartoint(input);
+    int c7 = white();
+
+    strcpy(input, "D4xG1"); // Ход по диагонали вниз вправо и взятие
+    chartoint(input);
+    desk[i2][c2] = 'p';
+    int c8 = white();
+
+    desk[i2][c2] = ' ';
+
+    strcpy(input, "D4-G7"); // Ход по диагонали вверх вправо через фигуру
+    chartoint(input);
+    desk[i2 - 1][c2 - 1] = 'p';
+    int c9 = white();
+
+    desk[i2 - 1][c2 - 1] = ' ';
+
+    strcpy(input, "D4-F7"); // Ход Г по диагонали вверх вправо
+    chartoint(input);
+    int c10 = white();
+
+    desk[i1][c1] = ' ';
+
+    const int exp1 = 1;
+    const int exp2 = 1;
+    const int exp3 = 1;
+    const int exp4 = 1;
+    const int exp5 = 1;
+    const int exp6 = 1;
+    const int exp7 = 1;
+    const int exp8 = 1;
+    const int exp9 = 0;
+    const int exp10 = 0;
+
+    ASSERT_EQUAL(exp1, c1);
+    ASSERT_EQUAL(exp2, c2);
+    ASSERT_EQUAL(exp3, c3);
+    ASSERT_EQUAL(exp4, c4);
+    ASSERT_EQUAL(exp5, c5);
+    ASSERT_EQUAL(exp6, c6);
+    ASSERT_EQUAL(exp7, c7);
+    ASSERT_EQUAL(exp8, c8);
+    ASSERT_EQUAL(exp9, c9);
+    ASSERT_EQUAL(exp10, c10);
+}
+CTEST(signs ,sign)
+{
+    strcpy(input, "E2fE4"); // Ввод неправильного формата
+    int c1 = chartoint(input);
+
+    strcpy(input, "E2xE4"); // Ход взятия
+    int c2 = chartoint(input);
+
+    strcpy(input, "E2-E4"); // Обычный ход
+    int c3 = chartoint(input);
+
+    strcpy(input, "E2#E9"); // Неправилный знак
+    int c4 = chartoint(input);
+
+    const int exp1 = 0;
+    const int exp2 = 0;
+    const int exp3 = 1;
+    const int exp4 = 0;
+
+    ASSERT_EQUAL(exp1, c1);
+    ASSERT_EQUAL(exp2, c2);
+    ASSERT_EQUAL(exp3, c3);
+    ASSERT_EQUAL(exp4, c4);
+}
