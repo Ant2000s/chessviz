@@ -1,4 +1,4 @@
-#include "../src/board.h"
+﻿#include "../src/board.h"
 #include "../src/board_print_plain.h"
 #include "../thirdparty/ctest.h"
 #include <stdio.h>
@@ -165,3 +165,56 @@ CTEST(moving, moveblackpawn) // Тест черной пешки
     ASSERT_EQUAL(exp6, c6);
     ASSERT_EQUAL(exp7, c7);
 }
+
+CTEST(moving, moverook) // Тест ладьи
+{
+    strcpy(input, "D4-D7"); // Ход вперед
+    chartoint(input);
+    desk[i1][c1] = 'R';
+    int c1 = white();
+
+    strcpy(input, "D4-D2"); // Ход назад
+    chartoint(input);
+    int c2 = white();
+
+    strcpy(input, "D4-F4"); // Ход вправо
+    chartoint(input);
+    int c3 = white();
+
+    strcpy(input, "D4-B4"); // Ход влево
+    chartoint(input);
+    int c4 = white();
+
+    strcpy(input, "D4-F6"); // Ход по диагонали
+    chartoint(input);
+    int c5 = white();
+
+    strcpy(input, "D4xD5"); // Взятие чужой фигуры
+    chartoint(input);
+    desk[i2][c2] = 'r';
+    int c6 = white();
+
+    strcpy(input, "D4-D6"); // Ход через фигуру
+    chartoint(input);
+    int c7 = white();
+
+    desk[i1][c1] = ' ';
+    desk[i2 - 1][c2] = ' ';
+
+    const int exp1 = 1;
+    const int exp2 = 1;
+    const int exp3 = 1;
+    const int exp4 = 1;
+    const int exp5 = 0;
+    const int exp6 = 1;
+    const int exp7 = 0;
+
+    ASSERT_EQUAL(exp1, c1);
+    ASSERT_EQUAL(exp2, c2);
+    ASSERT_EQUAL(exp3, c3);
+    ASSERT_EQUAL(exp4, c4);
+    ASSERT_EQUAL(exp5, c5);
+    ASSERT_EQUAL(exp6, c6);
+    ASSERT_EQUAL(exp7, c7);
+}
+
