@@ -1,4 +1,4 @@
-﻿#include "../src/board.h"
+#include "../src/board.h"
 #include "../src/board_print_plain.h"
 #include "../thirdparty/ctest.h"
 #include <stdio.h>
@@ -215,6 +215,102 @@ CTEST(moving, moverook) // Тест ладьи
     ASSERT_EQUAL(exp4, c4);
     ASSERT_EQUAL(exp5, c5);
     ASSERT_EQUAL(exp6, c6);
+    ASSERT_EQUAL(exp7, c7);
+}
+
+CTEST(moving, moveknight) // Тест коня
+{
+    strcpy(input, "D4-D7"); // Ход вперед
+    chartoint(input);
+    desk[i1][c1] = 'N';
+    int c1 = white();
+
+    strcpy(input, "D4-D2"); // Ход назад
+    chartoint(input);
+    int c2 = white();
+
+    strcpy(input, "D4-F4"); // Ход вправо
+    chartoint(input);
+    int c3 = white();
+
+    strcpy(input, "D4-B4"); // Ход влево
+    chartoint(input);
+    int c4 = white();
+
+    strcpy(input, "D4-F6"); // Ход по диагонали
+    chartoint(input);
+    int c5 = white();
+
+    strcpy(input, "D4-C6"); // Ход Г вверх влево
+    chartoint(input);
+    int c61 = white();
+
+    strcpy(input, "D4-E6"); // Ход Г вверх вправо
+    chartoint(input);
+    int c62 = white();
+
+    strcpy(input, "D4-F5"); // Ход Г вправо вверх
+    chartoint(input);
+    int c63 = white();
+
+    strcpy(input, "D4-F3"); // Ход Г вправо вниз
+    chartoint(input);
+    int c64 = white();
+
+    strcpy(input, "D4-E2"); // Ход Г вниз вправо
+    chartoint(input);
+    int c65 = white();
+
+    strcpy(input, "D4-C2"); // Ход Г вниз влево
+    chartoint(input);
+    int c66 = white();
+
+    strcpy(input, "D4-B5"); // Ход Г влево вверх
+    chartoint(input);
+    int c67 = white();
+
+    strcpy(input, "D4-B3"); // Ход Г влево вниз
+    chartoint(input);
+    int c68 = white();
+
+    strcpy(input, "D4xE6"); // Ход через фигуру и взятие
+    chartoint(input);
+    desk[c1 + 1][i1] = 'p';
+    desk[i2][c2] = 'n';
+    int c7 = white();
+
+    desk[i1][c1] = ' ';
+    desk[c1 + 1][i1] = ' ';
+    desk[i2][c2] = ' ';
+
+    const int exp1 = 0;
+    const int exp2 = 0;
+    const int exp3 = 0;
+    const int exp4 = 0;
+    const int exp5 = 0;
+    const int exp61 = 1;
+    const int exp62 = 1;
+    const int exp63 = 1;
+    const int exp64 = 1;
+    const int exp65 = 1;
+    const int exp66 = 1;
+    const int exp67 = 1;
+    const int exp68 = 1;
+    const int exp7 = 1;
+
+    ASSERT_EQUAL(exp1, c1);
+    ASSERT_EQUAL(exp2, c2);
+    ASSERT_EQUAL(exp3, c3);
+    ASSERT_EQUAL(exp4, c4);
+    ASSERT_EQUAL(exp5, c5);
+    ASSERT_EQUAL(exp61, c61);
+    ASSERT_EQUAL(exp62, c62);
+    ASSERT_EQUAL(exp63, c63);
+    ASSERT_EQUAL(exp64, c64);
+    ASSERT_EQUAL(exp65, c65);
+    ASSERT_EQUAL(exp66, c66);
+    ASSERT_EQUAL(exp67, c67);
+    ASSERT_EQUAL(exp68, c68);
     ASSERT_EQUAL(exp7, c7);
 }
 
