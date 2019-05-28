@@ -35,7 +35,7 @@ CTEST(inputdata, chartointer)
 
     const int exp1 = 0;
     const int exp2 = 0;
-    const int exp3 = 0;
+    const int exp3 = 1;
     const int exp4 = 0;
     const int exp5 = 0;
 
@@ -541,7 +541,7 @@ CTEST(signs, sign)
 
     const int exp1 = 0;
     const int exp2 = 0;
-    const int exp3 = 0;
+    const int exp3 = 1;
     const int exp4 = 0;
 
     ASSERT_EQUAL(exp1, z1);
