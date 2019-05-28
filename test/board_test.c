@@ -525,7 +525,7 @@ CTEST(moving, movequeen) // Тест ферзя
     ASSERT_EQUAL(exp9, z9);
     ASSERT_EQUAL(exp10, z10);
 }
-CTEST(signs ,sign)
+CTEST(signs, sign)
 {
     strcpy(input, "E2fE4"); // Ввод неправильного формата
     int z1 = chartoint(input);
