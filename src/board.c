@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 extern char desk[8][8];
 extern int i1, c1, i2, c2;
 extern char input[7];
