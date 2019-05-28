@@ -41,7 +41,7 @@ int chartoint(char input[7])
     i1 = (int)input[1] - '1';
     c2 = (int)input[3] - 'A';
     i2 = (int)input[4] - '1';
-    if (desk[i1][c1] == ' ') {
+    if ((desk[i1][c1] == ' ') && (input[3] == 'x')) {
         printf("В выбраной клетке ни кого нет! введите ещё раз: ");
         return 0;
     }
