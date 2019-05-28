@@ -2,19 +2,19 @@
 #include <stdio.h>
 #include <string.h>
 
+
 extern char desk[8][8];
 extern int i1, c1, i2, c2;
 extern char input[7];
 
 void start(int flag)
 {
-    // char input[7] = "NULL";
     for (;;) {
         for (;;) {
-        fgets(input, 7, stdin);
-        if (chartoint(input)) {
-            break;
-        }
+            fgets(input, 7, stdin);
+            if (chartoint(input)) {
+                break;
+            }
         }
         if (flag == 1) {
             if (white() == 1) {
@@ -35,6 +35,7 @@ void start(int flag)
 int chartoint(char input[7])
 {
     if ((input[2] != '-') && (input[2] != 'x')) {
+        printf("Невoзможное действие! Введите ещё раз: ");
         return 0;
     }
     c1 = (int)input[0] - 'A';
@@ -53,8 +54,8 @@ int chartoint(char input[7])
         printf("Нельзя сходить, клетка занята. Введите ещё раз: ");
         return 0;
     }
-    if ((c2 < 8) && (c2 >= 0) && (i2 < 8) && (i2 >= 0) && (c1 < 8)
-            && (c1 >= 0) && (i1 < 8) && (i1 >= 0)) {
+    if ((c2 < 8) && (c2 >= 0) && (i2 < 8) && (i2 >= 0) && (c1 < 8) && (c1 >= 0)
+        && (i1 < 8) && (i1 >= 0)) {
         return 1;
     }
     return 0;
